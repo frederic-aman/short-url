@@ -1,6 +1,6 @@
 ## Description
 
-URL shortener service
+Lunii study case: URL shortener service.
 
 ## Installation
 
@@ -45,9 +45,11 @@ url=$ \dt #show list of tables
 
 ## Usage
 
-You can use [Postman](https://www.postman.com/downloads/) to execute POST and GET request.
+You can use [Postman](https://www.postman.com/downloads/) to execute POST and GET requests and visualize responses.
 
 ### **Post original URL and retrieve short URL**
+
+Short URLs are 6 carachters from [a-z], [A-Z] or [0-9], eg. 5ThNpz
 
 > POST http://localhost:5000/api/shorturl
 
