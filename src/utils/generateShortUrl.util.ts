@@ -1,3 +1,11 @@
+/**
+ * Generates a random string with a given size and characters from [a-z], [A-Z] and [0-9]
+ * @example
+ * generateShortUrl(6)
+ * => returns AgH9k3
+ * @param {number} length - The length of the string to generate
+ * @returns {string} - The generated string
+ */
 function generateShortUrl(length: number) {
   let result = '';
   const characters = 'ABCDEFGHIJKLMNPQRSTUVWXYZabcdefghijklmnpqrstuvwxyz123456789';
