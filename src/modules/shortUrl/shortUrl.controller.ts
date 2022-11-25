@@ -6,6 +6,10 @@ import {
   readAllUrlsWithNbClicks,
 } from './shortUrl.service';
 
+export async function rootHandler(req: Request, res: Response) {
+  res.send('Lunii study case: URL shortener service');
+}
+
 export async function createOrReadShortUrlFromOriginalUrlHandler(
   req: Request<{}, {}, OriginalUrlInput>,
   res: Response,

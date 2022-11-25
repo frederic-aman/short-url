@@ -1,16 +1,15 @@
-import { Express, Request, Response } from 'express';
+import { Express } from 'express';
 import {
   createOrReadShortUrlFromOriginalUrlHandler,
   readAndRedirectToOriginalUrlFromShortUrlHandler,
   readAllUrlsWithNbClicksHandler,
+  rootHandler,
 } from './modules/shortUrl/shortUrl.controller';
 import { originalUrlSchema, shortUrlSchema } from './modules/shortUrl/schemas';
 import { validateOriginalUrl, validateShortUrl } from './modules/shortUrl/middlewares';
 
 function routes(app: Express) {
-  app.get('/', (req: Request, res: Response) => {
-    res.send('Lunii study case: URL shortener service');
-  });
+  app.get('/', rootHandler);
 
   app.post('/api/shorturl', validateOriginalUrl(originalUrlSchema), createOrReadShortUrlFromOriginalUrlHandler);
 
