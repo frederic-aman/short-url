@@ -4,10 +4,6 @@ import { Url } from './models';
 const SHORT_URL_SIZE = 6;
 
 export async function createOrReadShortUrlFromOriginalUrl(originalUrl: string | undefined) {
-  if (originalUrl == null) {
-    throw new Error('Cannot create short URL because original URL is undefined');
-  }
-
   const [row, created] = await Url.findOrCreate({
     where: { originalUrl },
     defaults: { originalUrl, shortUrl: generateShortUrl(SHORT_URL_SIZE), nbClicks: 0 },
@@ -25,10 +21,6 @@ export async function createOrReadShortUrlFromOriginalUrl(originalUrl: string | 
 }
 
 export async function readOriginalUrlFromShortUrl(shortUrl: string | undefined): Promise<string> {
-  if (shortUrl == null) {
-    throw new Error('Cannot get original URL because short URL is undefined');
-  }
-
   const row = await Url.increment('nbClicks', { by: 1, where: { shortUrl } });
 
   if (row[0][0][0] == null) {
